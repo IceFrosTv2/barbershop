@@ -1,4 +1,4 @@
-<!doctype html>
+git <!doctype html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +8,7 @@
     <title>Барбершоп №1</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/slick-theme.css">
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/adaptive.css">
@@ -247,41 +246,50 @@
         над тем, чтобы создавать и поддерживать ваш индивидуальный стиль, подчеркивать характер и превращать недостатки
         в достоинства.
     </div>
-    <div class="barber__list">
-        <div class="barber barber-1">
-            <img src="image/2.png" alt="Барбер Алексей" class="barber__photo">
-            <div class="barber__description">
-                <div class="barber__name">Алексей</div>
-                <button class="barber__button btn btn-outline-warning">Записаться</button>
-            </div>
-        </div>
-        <div class="barber">
-            <img src="image/1.png" alt="Барбер Марат" class="barber__photo">
-            <div class="barber__description">
-                <div class="barber__name">Марат</div>
-                <button class="barber__button btn btn-outline-warning">Записаться</button>
-            </div>
-        </div>
-        <div class="barber">
-            <img src="image/3.png" alt="Барбер Екатерина" class="barber__photo">
-            <div class="barber__description">
-                <div class="barber__name">Екатерина</div>
-                <button class="barber__button btn btn-outline-warning">Записаться</button>
+    <div class="splide" id="main-slide" aria-label="My Awesome Gallery">
+        <div class="splide__track">
+            <div class="barber__list splide__list">
+                <figure class="barber splide__slide">
+                    <img src="image/1.png" alt="Барбер Марат" class="barber__photo">
+                    <figcaption class="barber__description">
+                        <div class="barber__name">Марат</div>
+                        <button class="barber__button btn btn-outline-warning">Записаться</button>
+                    </figcaption>
+                </figure>
+                <figure class="barber splide__slide">
+                    <img src="image/2.png" alt="Барбер Екатерина" class="barber__photo">
+                    <figcaption class="barber__description">
+                        <div class="barber__name">Екатерина</div>
+                        <button class="barber__button btn btn-outline-warning">Записаться</button>
+                    </figcaption>
+                </figure>
+                <figure class="barber splide__slide">
+                    <img src="image/3.png" alt="Барбер Алексей" class="barber__photo">
+                    <figcaption class="barber__description">
+                        <div class="barber__name">Алексей</div>
+                        <button class="barber__button btn btn-outline-warning">Записаться</button>
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </div>
-    <div class="arrows__list">
-        <div class="arrows__item">
-            <div class="item__block"></div>
-        </div>
-        <div class="arrows__item">
-            <div class="item__block"></div>
-        </div>
-        <div class="arrows__item">
-            <div class="item__block"></div>
+    <div class="splide thumbnail-slider" id="thumbnail-slider">
+        <div class="splide__track">
+            <div class="splide__list thumbnail__list">
+                <div class="splide__slide thumbnail">
+                    <div class="thumbnail-block"></div>
+                </div>
+                <div class="splide__slide thumbnail">
+                    <div class="thumbnail-block"></div>
+                </div>
+                <div class="splide__slide thumbnail">
+                    <div class="thumbnail-block"></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 <!--___________________________________________________________________________________________________________-->
 <section>
 
@@ -291,7 +299,7 @@
 <script src="scripts/jquery-3.7.1.min.js"></script>
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/parallax.min.js"></script>
-<script src="scripts/slick.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
 <script src="scripts/script.js"></script>
 </body>

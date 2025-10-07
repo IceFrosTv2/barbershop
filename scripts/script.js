@@ -4,27 +4,58 @@ $(function () {
     $('.parallax').parallax({imageSrc: '../image/bg-follow-full.png', speed: .8});
     $('.parallax2').parallax({imageSrc: '../image/bg-follow-full.png', speed: .5});
 
-    $('.barber__list').slick({
-        centerMode: true,
-        centerPadding: '0px',
-        slidesToShow: 1,
-        slidesToScroll: 1,
+    const splide = new Splide('#main-slide', {
+        pagination: false,
         arrows: false,
-        adaptiveHeight: true,
-        variableWidth: true,
-        infinite: false,
-        dots: false,
-        asNavFor: '.arrows__list',
+        type: 'loop',
+        perPage: 3,
+        focus: 'center',
+        gap: -20,
+        width: 1004,
+        autoWidth: true,
     });
-    $('.arrows__list').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.barber__list',
-        dots: false,
+
+    const thumbnails = document.getElementsByClassName('thumbnail');
+    let current;
+
+    for (let i = 0; i < thumbnails.length; i++) {
+        barberList(thumbnails[i], i);
+    }
+
+    function barberList(thumbnail, index) {
+        thumbnail.addEventListener('click', function () {
+            splide.go(index);
+        });
+    }
+
+    splide.on('mounted move', function () {
+        const thumbnail = thumbnails[splide.index];
+
+        if (thumbnail) {
+            if (current) {
+                current.classList.remove('is-active');
+            }
+
+            thumbnail.classList.add('is-active');
+            current = thumbnail;
+        }
+    });
+
+    const thumbnailSlider = new Splide('#thumbnail-slider', {
+        autoWidth: true,
+        isNavigation: true,
+        gap: 10,
+        // focus: 'center',
+        pagination: false,
         arrows: true,
-        centerMode: true,
-        focusOnSelect: true,
-        variableWidth: true,
-        infinite: true,
-    })
+        keyboard: 'global',
+        dragMinThreshold: {
+            mouse: 4,
+            touch: 10,
+        },
+    });
+
+    thumbnailSlider.sync(splide);
+    thumbnailSlider.mount();
+    splide.mount();
 })
