@@ -7,7 +7,7 @@ $(function () {
     const splide = new Splide('#main-slide', {
         pagination: false,
         arrows: false,
-        type: 'loop',
+        // type: 'loop',
         perPage: 3,
         focus: 'center',
         gap: -20,

@@ -304,14 +304,19 @@ body {
     transform: translate(-50%, -50%);
     z-index: -1;
 }
-
+/*__________________________________________________________________________________________________________________*/
 .first-visit__span {
     color: var(--main-color);
     font-weight: bold;
 }
 
+/*__________________________________________________________________________________________________________________*/
 .masters-info__description {
     margin-bottom: 21px;
+}
+
+#main-slide {
+    margin: 0 auto;
 }
 
 .barber {
@@ -324,6 +329,7 @@ body {
 .barber.is-active {
     width: 460px;
     height: 477px;
+
     position: relative;
     z-index: 1;
 }
@@ -368,12 +374,7 @@ body {
     height: 38px;
 }
 
-.splide {
-    /*justify-self: center;*/
-}
-
 .thumbnail-slider {
-    /*margin-top: 40px;*/
     margin: 40px auto 0;
     display: flex;
     justify-content: center;
@@ -387,11 +388,6 @@ body {
 .splide__arrow svg {
     display: none;
 }
-
-/*.splide__arrow {*/
-/*    width: 28px;*/
-/*    height: 28px;*/
-/*}*/
 
 .splide__arrow--prev {
     background: url("../image/left-arrow.svg") no-repeat;
