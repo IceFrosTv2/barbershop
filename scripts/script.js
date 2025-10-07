@@ -7,13 +7,28 @@ $(function () {
     const splide = new Splide('#main-slide', {
         pagination: false,
         arrows: false,
-        // type: 'loop',
+        type: 'loop',
         perPage: 3,
         focus: 'center',
-        gap: -20,
         width: 1004,
         autoWidth: true,
     });
+
+    const thumbnailSlider = new Splide('#thumbnail-slider', {
+        autoWidth: true,
+        isNavigation: true,
+        gap: 10,
+        pagination: false,
+        arrows: true,
+        keyboard: 'global',
+        rewind: true,
+        focus: 'center',
+        width: 400,
+    });
+
+    splide.sync(thumbnailSlider);
+    splide.mount();
+    thumbnailSlider.mount();
 
     const thumbnails = document.getElementsByClassName('thumbnail');
     let current;
@@ -41,21 +56,4 @@ $(function () {
         }
     });
 
-    const thumbnailSlider = new Splide('#thumbnail-slider', {
-        autoWidth: true,
-        isNavigation: true,
-        gap: 10,
-        // focus: 'center',
-        pagination: false,
-        arrows: true,
-        keyboard: 'global',
-        dragMinThreshold: {
-            mouse: 4,
-            touch: 10,
-        },
-    });
-
-    thumbnailSlider.sync(splide);
-    thumbnailSlider.mount();
-    splide.mount();
 })

@@ -304,6 +304,7 @@ body {
     transform: translate(-50%, -50%);
     z-index: -1;
 }
+
 /*__________________________________________________________________________________________________________________*/
 .first-visit__span {
     color: var(--main-color);
@@ -324,14 +325,27 @@ body {
     height: 404px;
     position: relative;
     transition: width 0.3s ease;
+    visibility: hidden;
 }
 
 .barber.is-active {
     width: 460px;
     height: 477px;
-
     position: relative;
     z-index: 1;
+    visibility: visible;
+}
+
+.barber.is-next {
+    margin-left: -20px;
+    display: block;
+    visibility: visible;
+}
+
+.barber.is-prev {
+    margin-right: -20px;
+    display: block;
+    visibility: visible;
 }
 
 .barber__list {
@@ -349,11 +363,11 @@ body {
 
 .barber.is-active img {
     filter: none;
+    object-position: top;
 }
 
 .barber__description {
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 2;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -391,13 +405,15 @@ body {
 
 .splide__arrow--prev {
     background: url("../image/left-arrow.svg") no-repeat;
+    left: -1.5em;
 }
 
 .splide__arrow--next {
     background: url("../image/right-arrow.svg");
+    right: -1.5em;
 }
 
-.splide__track--nav>.splide__list>.splide__slide {
+.splide__track--nav > .splide__list > .splide__slide {
     width: 25px;
     height: 25px;
     /*overflow: hidden;*/
@@ -407,7 +423,7 @@ body {
     border: 1px solid var(--main-color);
 }
 
-.splide__track--nav>.splide__list>.splide__slide.is-active {
+.splide__track--nav > .splide__list > .splide__slide.is-active {
     width: 30px;
     height: 30px;
     border: 1px solid var(--main-color);
