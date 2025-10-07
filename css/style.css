@@ -1,7 +1,7 @@
 :root {
     --bs-body-color: white;
     --bs-heading-color: white;
-    --main-color: #ae8959;
+    --main-color: #a48763;
     --main-color-hover: #c79b66;
     --lora: "Lora", sans-serif;
 }
@@ -52,6 +52,7 @@ body {
     box-shadow: 0 0 19px 6px rgba(152, 108, 52, 0.2);
     font-size: 18px;
     font-weight: bold;
+    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--main-color-hover), .5);
 }
 
 .btn-warning {
@@ -79,6 +80,8 @@ body {
     --bs-btn-active-border-color: var(--main-color);
     --bs-btn-hover-color: #fff;
     --bs-btn-active-color: #fff;
+    --bs-btn-disabled-color: var(--main-color);
+    --bs-btn-disabled-border-color: var(--main-color);
 }
 
 .header__link {
@@ -329,28 +332,35 @@ body {
 }
 
 .barber.is-active {
-    width: 460px;
-    height: 477px;
+    /*width: 460px;*/
+    /*height: 477px;*/
+    transform: scale(1.35, 1.25);
     position: relative;
     z-index: 1;
+}
+
+.barber.is-active .barber__name,
+.barber.is-active .barber__button {
+    transform: scale(0.741, 0.8);
+}
+
+.barber.is-active, .barber.is-next,  .barber.is-prev{
     visibility: visible;
 }
 
 .barber.is-next {
     margin-left: -20px;
     display: block;
-    visibility: visible;
 }
 
 .barber.is-prev {
     margin-right: -20px;
     display: block;
-    visibility: visible;
 }
 
 .barber__list {
     align-items: center;
-    height: 477px;
+    height: 500px;
 }
 
 .barber img {
@@ -392,7 +402,7 @@ body {
     margin: 40px auto 0;
     display: flex;
     justify-content: center;
-    width: 225px;
+    width: 333px;
 }
 
 .thumbnail__list {
@@ -405,25 +415,24 @@ body {
 
 .splide__arrow--prev {
     background: url("../image/left-arrow.svg") no-repeat;
-    left: -1.5em;
+    left: 0;
 }
 
 .splide__arrow--next {
     background: url("../image/right-arrow.svg");
-    right: -1.5em;
+    right: 0;
 }
 
-.splide__track--nav > .splide__list > .splide__slide {
+.splide__track--nav > .splide__list > .thumbnail {
     width: 25px;
     height: 25px;
-    /*overflow: hidden;*/
     list-style: none;
     margin: 0 10px;
     cursor: pointer;
     border: 1px solid var(--main-color);
 }
 
-.splide__track--nav > .splide__list > .splide__slide.is-active {
+.splide__track--nav > .splide__list > .thumbnail.is-active {
     width: 30px;
     height: 30px;
     border: 1px solid var(--main-color);

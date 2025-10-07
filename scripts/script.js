@@ -22,8 +22,6 @@ $(function () {
         arrows: true,
         keyboard: 'global',
         rewind: true,
-        focus: 'center',
-        width: 400,
     });
 
     splide.sync(thumbnailSlider);
