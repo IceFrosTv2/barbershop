@@ -44,6 +44,10 @@ body {
     background-image: url("../image/background.png");
 }
 
+p {
+    margin-bottom: 0;
+}
+
 .btn {
     border: none;
     width: 232px;
@@ -212,8 +216,7 @@ body {
 
 .follow-as__container,
 .first-visit__container {
-    width: 920px;
-    justify-self: center;
+    width: 916px;
     position: relative;
     left: -50px;
 }
@@ -365,7 +368,7 @@ body {
     background: var(--main-color-hover);
 }
 
-.barber.is-active, .barber.is-next,  .barber.is-prev{
+.barber.is-active, .barber.is-next, .barber.is-prev {
     opacity: 1;
 }
 
@@ -457,7 +460,7 @@ body {
 }
 
 .thumbnail.is-active div {
-    background: #ae8959;
+    background: var(--main-color);
     width: 16px;
     height: 16px;
     position: relative;
@@ -465,3 +468,98 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/*______________________________________________________________________________________________________________*/
+.footer {
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    background: #131318;
+}
+
+.footer__info-and-map {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 100px;
+}
+
+.footer__info-and-logo {
+    flex: 1;
+    margin-right: 47px;
+    display: flex;
+    flex-direction: column;
+    max-width: 199px;
+    text-align: center;
+}
+
+.footer__info {
+    margin-top: 69px;
+    margin-bottom: 60px;
+    justify-items: center;
+    line-height: 1.2;
+}
+
+.footer__work-time {
+    max-width: 147px;
+}
+
+.footer__address {
+    margin: 40px 0;
+}
+
+.social-media__text, .contact__email {
+    margin-bottom: 20px;
+}
+
+.social-icon__inst {
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.contact__email a, .contact__phone a {
+    text-decoration: none;
+    color: unset;
+}
+
+.contact__email a:hover,
+.contact__phone a:hover {
+    color: var(--main-color);
+}
+
+.footer__map {
+    flex: 1;
+    width: 862px;
+    height: 436px;
+}
+
+[class*="copyrights-pane"] {
+    display: none !important;
+}
+
+[class*="ground-pane"] {
+    filter: grayscale(1);
+}
+
+.footer__rights {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: rgb(80, 79, 79);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

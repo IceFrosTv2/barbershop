@@ -17,7 +17,7 @@
 
 <section class="container">
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between pb-2 pt-5 mt-3 mb-1">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-decoration-none">
+        <a href="#">
             <img src="image/logo.png" alt="logo">
         </a>
 
@@ -114,7 +114,7 @@
 </section>
 <!--___________________________________________________________________________________________________________-->
 <section class="follow-as parallax align-content-center">
-    <div class="follow-as__container d-flex justify-content-between align-items-center">
+    <div class="follow-as__container d-flex justify-content-between align-items-center container">
         <h2 class="follow-as__title">Следи за нами в <span class="follow-as__span">Instagram</span>,
             чтобы быть в курсе всех акций!</h2>
         <button class="btn btn-warning follow-as__button">Подписаться</button>
@@ -232,7 +232,7 @@
 </section>
 <!--___________________________________________________________________________________________________________-->
 <section class="first-visit parallax2 align-content-center">
-    <div class="first-visit__container d-flex justify-content-between align-items-center">
+    <div class="first-visit__container d-flex justify-content-between align-items-center container">
         <h2 class="first-visit__title">Вы у нас первый раз?
             Получите <span class="first-visit__span">скидку 15%</span></h2>
         <button class="btn btn-warning">Получить скидку</button>
@@ -331,10 +331,55 @@
         </div>
     </div>
 </section>
-
 <!--___________________________________________________________________________________________________________-->
-<section>
-
+<section class="footer">
+    <div class="container">
+        <div class="footer__info-and-map">
+            <div class="footer__info-and-logo">
+                <a href="#">
+                    <img src="image/logo.png" alt="logo">
+                </a>
+                <div class="footer__info">
+                    <div class="footer__work-time">
+                        <p>Время работы:</p>
+                        <p>Пн-Вс 10:00-21:00</p>
+                    </div>
+                    <div class="footer__address">
+                        г. Москва, Москва Сити,
+                        Башня «Деловой центр»
+                    </div>
+                    <div class="footer__social-media">
+                        <div class="social-media__text">
+                            Мы в социальных сетях:
+                        </div>
+                        <div class="social-media__icons">
+                            <a href="https://vk.com" class="social-icon"><img src="image/icons-vkontakte-50.png"
+                                                                              alt="VK icon"></a>
+                            <a href="https://instagramm.com" class="social-icon__inst"><img
+                                    src="image/icons-inst-50.png"
+                                    alt="Instagram icon"></a>
+                            <a href="https://facebook.com" class="social-icon"><img src="image/icons-facebook-50.png"
+                                                                                    alt="Facebook icon"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer__contact">
+                    <div class="contact__email">
+                        E-mail:
+                        <a href="mailto:info@barberclub.ru">info@barberclub.ru</a>
+                    </div>
+                    <div class="contact__phone">
+                        <a href="tel:+7 912 816-93-96 ">+7 912 816-93-96 </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__map" id="footer-map"></div>
+        </div>
+        <div class="footer__rights">
+            <p>Все права защищены.</p>
+            <p>Design by Karpuhin Vadim</p>
+        </div>
+    </div>
 </section>
 
 <!--___________________________________________________________________________________________________________-->
@@ -342,6 +387,10 @@
 <script src="scripts/bootstrap.min.js"></script>
 <script src="scripts/parallax.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=cd5d127e-22b0-445c-953a-e762b1319647
+&lang=ru_RU" type="text/javascript"></script>
+
+
 
 <script src="scripts/script.js"></script>
 </body>
