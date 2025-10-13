@@ -56,7 +56,7 @@ $(function () {
   const phoneOptions = {
     mask: '+{7} (000) 000 - 00 - 00'
   };
-  const maskPhone = IMask(phone, phoneOptions);
+  IMask(phone, phoneOptions);
 
   IMask(
     document.getElementById('date'),
@@ -179,7 +179,7 @@ $(function () {
 
   // _______Barber button click______________________________________________________________________________________
 
-  let barberButton = $('.barber.is-active .barber__button ').click(function () {
+  $('.barber.is-active .barber__button ').click(function () {
     let chooseBarber = $('#main-slide');
     let chooseService = $('#inputs-block');
 
