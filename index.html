@@ -99,13 +99,13 @@
 <!--___________________________________________________________________________________________________________-->
 <section class="container d-flex align-items-center position-relative">
   <article class="preview-info d-flex flex-column">
-    <span class="fon-text-1 position-absolute end-0">strong</span>
+    <span class="fon-text-1 end-0">strong</span>
     <h1 class="preview__title mb-4 pb-3">Создайте деловой имидж,
       который достоин Вас!
     </h1>
     <span class="preview__description mb-5">Мужские стрижки и бритье в центре Москвы</span>
     <button class="preview__button btn btn-warning">Записаться онлайн</button>
-    <span class="fon-text-2 position-absolute ">club</span>
+    <span class="fon-text-2 ">club</span>
   </article>
   <article class="preview-image">
     <img
@@ -524,7 +524,7 @@
             <input
               type="text"
               pattern="^[a-zA-Zа-яА-ЯёЁ]+$"
-              class="inputs-block__input"
+              class="inputs-block__input submission"
               id="name"
               name="name"
               placeholder="Ваше имя"
@@ -532,7 +532,7 @@
           </label>
           <label>
             <input
-              class="inputs-block__input"
+              class="inputs-block__input submission"
               id="phone"
               name="phone"
               placeholder="Ваш телефон"
@@ -542,7 +542,7 @@
         <div class="choose-options">
           <label class="select-master__label">
             <select
-              class="select__service"
+              class="select__service submission"
               id="choose-service"
               name="select-a-service"
             >
@@ -556,7 +556,7 @@
           </label>
           <label class="select-master__label">
             <select
-              class="select__master"
+              class="select__master submission"
               name="select-a-master"
               id="choose-masters"
             >
@@ -572,17 +572,17 @@
         <div class="choose-date">
           <label>
             <input
-              class="inputs-block__input form-control"
+              class="inputs-block__input form-control submission"
               id="date"
               name="Choose date"
               placeholder="Введите дату"
             />
           </label>
-          <label class="select-master__label">
+          <label class="select-master__label submission">
             <select
               class="select__time"
               name="Choose time"
-              id="choose-time"
+              id="select__time"
             >
               <option
                 value=""
@@ -594,7 +594,7 @@
           </label>
         </div>
       </div>
-      <button class="inputs-block__button btn btn-warning">
+      <button class="service__button btn btn-warning">
         Оформить заявку
       </button>
     </div>

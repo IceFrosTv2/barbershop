@@ -1,3 +1,4 @@
+/*Main styles and default*/
 :root {
   --bs-body-color: white;
   --bs-heading-color: white;
@@ -48,7 +49,7 @@ body {
 p {
   margin-bottom: 0;
 }
-
+/*_____Button and basic styles___________________________________________________________________*/
 .btn {
   border: none;
   width: 232px;
@@ -88,7 +89,7 @@ p {
   --bs-btn-disabled-color: var(--main-color);
   --bs-btn-disabled-border-color: var(--main-color);
 }
-
+/*__________________________Link and phone in header__________________________________*/
 .header__link {
   color: white;
   border-bottom: 1px solid transparent;
@@ -104,17 +105,27 @@ p {
   border-bottom-color: var(--main-color);
 }
 
-/*______________________________________________________________________________--*/
-.fon-text-1 {
+/*___Fon elements___________________________________________________________________________--*/
+.fon-text-1, .fon-text-2 {
   font-size: 11.25rem;
   font-family: "Castellar", sans-serif;
   color: rgba(174, 137, 89, 0.051);
   line-height: 1;
-  text-align: left;
-  top: 4%;
   z-index: -1;
+  position: absolute;
 }
 
+.fon-text-1 {
+  top: 4%;
+  text-align: left;
+}
+
+.fon-text-2 {
+  line-height: 0.7;
+  bottom: 4%;
+}
+
+/*______Titles and descriptions of preview sections_________________________*/
 .preview__title {
   font-size: 2.5rem;
   font-family: var(--lora);
@@ -125,20 +136,12 @@ p {
   font-family: var(--lora);
 }
 
-.fon-text-2 {
-  font-size: 11.25rem;
-  font-family: "Castellar", sans-serif;
-  color: rgba(174, 137, 89, 0.051);
-  line-height: 0.7;
-  bottom: 4%;
-  z-index: -1;
-}
 
 .preview__button {
   padding: 23px 33px;
 }
 
-
+/*____________________Advantages block___________________________________*/
 .advantages {
   background: #131318;
   height: 180px;
@@ -147,7 +150,7 @@ p {
 .advantages__text {
   margin-left: 30px;
 }
-
+/*__________________About us, prices, information about the masters______________*/
 .about-as, .price, .masters-info {
   margin-top: 100px;
   margin-bottom: 100px;
@@ -214,11 +217,11 @@ p {
   bottom: -49px;
   right: 188px;
 }
-
+/*__________________Parallax effect_________________________*/
 .parallax, .parallax2 {
   min-height: 181px;
 }
-
+/*___________________Follow-as and first-visit containers_______________*/
 .follow-as__container,
 .first-visit__container {
   width: 916px;
@@ -242,7 +245,7 @@ p {
 .follow-as__button {
   padding: 23px 60px 22px;
 }
-
+/*____________________Price_______________________________*/
 .price {
   border-left: 1px solid var(--main-color);
 }
@@ -342,6 +345,7 @@ p {
 
 .barber__info {
   position: relative;
+  transition: all 0.6s ease;
 }
 
 .barber figure {
@@ -349,12 +353,16 @@ p {
   height: 404px;
 }
 
-.barber__info {
-  transition: all 0.6s ease;
+.barber.is-active {
+  opacity: 1;
 }
 
+/*.barber__info {*/
+/*  transition: all 0.6s ease;*/
+/*}*/
+
 .barber.is-active .barber__info {
-  transition: all 0.6s ease;
+  /*transition: all 0.6s ease;*/
   transform: scale(1.25);
   z-index: 1;
 }
@@ -367,13 +375,15 @@ p {
 .barber.is-active .barber__button {
   background: var(--main-color);
   border: none;
+  pointer-events: all;
+  opacity: 1;
 }
 
 .barber.is-active .barber__button:hover {
   background: var(--main-color-hover);
 }
 
-.barber.is-active, .barber.is-next, .barber.is-prev {
+.barber.is-next, .barber.is-prev {
   opacity: 1;
 }
 
@@ -400,11 +410,6 @@ p {
 
 .barber.is-active img {
   filter: none;
-}
-
-.barber.is-active .barber__button {
-  pointer-events: all;
-  opacity: 1;
 }
 
 .barber__description {
@@ -479,6 +484,162 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+/*_______________________Styles for the form and the .inputs-block section.__________*/
+.inputs-block {
+  max-width: 1004px;
+  padding: 60px 100px;
+  justify-items: center;
+  display: none;
+  background: url("../image/bg-follow-full.png") no-repeat center;
+  background-size: cover;
+  height: 500px;
+  transition: height 0.4s ease;
+}
+
+.inputs-block__title {
+  font-size: 1.5625rem;
+  font-family: "Lora";
+  line-height: 1.2;
+  max-width: 297px;
+}
+
+.inputs-block__form {
+  display: flex;
+  margin: 40px 0;
+}
+
+.splide__block label {
+  padding: 20px 0;
+}
+
+.inputs-block__input,
+.select2-container--default .select2-selection--single {
+  border: 1px solid var(--main-color);
+  background: transparent;
+  outline: none;
+  width: 225px;
+  height: 45px;
+  color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  align-content: center;
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.select2-selection__rendered {
+  padding: 0;
+}
+
+.select-master__label {
+  position: relative;
+}
+
+
+.select2-container--open .select2-dropdown--below,
+.dropdown-menu,
+.select2-dropdown--above {
+  background-color: #f9f5f0;
+  color: #4F4D4DFF;
+  margin-top: 7px;
+}
+
+.selection {
+  width: 225px;
+  height: 45px;
+  display: flex;
+  position: relative;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background: rgb(199 155 102 / 60%);
+  color: #4f4d4d;
+}
+
+.inputs-block__input::placeholder,
+.select2-container--default .select2-selection--single .select2-selection__placeholder,
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: white;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding-right: 30px;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+  max-height: 250px;
+}
+
+.select2-results__option {
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.arrow-down {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  content: "";
+  background: url("../image/right-arrow.svg") center;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  transition: all 0.3s ease;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b,
+.datepicker-dropdown:before,
+.datepicker-dropdown:after {
+  display: none;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+
+.datepicker table tr td.new, .datepicker table tr td.old {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.datepicker table tr td.day:hover, .datepicker table tr td.focused,
+.datepicker .datepicker-switch:hover,
+.datepicker .next:hover,
+.datepicker .prev:hover,
+.datepicker tfoot tr th:hover,
+.datepicker table tr td.today {
+  background: rgb(199 155 102 / 60%);
+}
+
+.datepicker table tr td.active.active,
+.datepicker table tr td.active.active.focus,
+.datepicker table tr td.active.highlighted.active,
+.datepicker table tr td.active.highlighted.active.focus,
+.datepicker table tr td.active.highlighted.active:hover,
+.datepicker table tr td.active:active:hover {
+  background-color: var(--main-color) !important;
+}
+
+.form-control:focus,
+.inputs-block__input:focus,
+.select2-selection--single:focus {
+  background-color: transparent;
+  border-color: var(--main-color);
+  box-shadow: 0 0 0 .25rem rgba(164, 135, 99, .25);
 }
 
 /*______________________________________________________________________________________________________________*/
@@ -573,162 +734,6 @@ p {
   color: rgb(80, 79, 79);
 }
 
-/*_____________________________________________________________________________*/
-.inputs-block {
-  max-width: 1004px;
-  padding: 60px 100px;
-  justify-items: center;
-  display: none;
-  background: url("../image/bg-follow-full.png") no-repeat center;
-  background-size: cover;
-  height: 500px;
-  transition: height 0.4s ease;
-}
-
-
-.splide__block label {
-  padding: 20px 0;
-}
-
-.inputs-block__title {
-  font-size: 1.5625rem;
-  font-family: "Lora";
-  line-height: 1.2;
-  max-width: 297px;
-}
-
-.inputs-block__form {
-  display: flex;
-  margin: 40px 0;
-}
-
-.inputs-block__input,
-.select2-container--default .select2-selection--single {
-  border: 1px solid var(--main-color);
-  background: transparent;
-  outline: none;
-  width: 225px;
-  height: 45px;
-  color: white;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  align-content: center;
-  text-align: left;
-}
-
-.inputs-block__input,
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.select-master__label {
-  position: relative;
-}
-
-
-.select2-container--open .select2-dropdown--below,
-.dropdown-menu,
-.select2-dropdown--above {
-  background-color: #f9f5f0;
-  color: #4F4D4DFF;
-  margin-top: 7px;
-}
-
-.selection {
-  width: 225px;
-  height: 45px;
-  display: flex;
-  position: relative;
-}
-
-.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
-  background: rgb(199 155 102 / 60%);
-  color: #4f4d4d;
-}
-
-.inputs-block__input::placeholder,
-.select2-container--default .select2-selection--single .select2-selection__placeholder,
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: white;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__rendered {
-  padding-right: 30px;
-}
-
-.select2-container--default .select2-results > .select2-results__options {
-  max-height: 250px;
-}
-
-.select2-results__option {
-  padding: 10px;
-  font-size: 1.1rem;
-}
-
-.arrow-down {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  pointer-events: none;
-  width: 20px;
-  height: 20px;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow {
-  content: "";
-  background: url("../image/right-arrow.svg") center;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  pointer-events: none;
-  width: 20px;
-  height: 20px;
-  background-size: cover;
-  transition: all 0.3s ease;
-}
-
-.select2-container--default .select2-selection--single .select2-selection__arrow b,
-.datepicker-dropdown:before,
-.datepicker-dropdown:after {
-  display: none;
-}
-
-.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow {
-  transform: translateY(-50%) rotate(-90deg);
-}
-
-
-.datepicker table tr td.new, .datepicker table tr td.old {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-.datepicker table tr td.day:hover, .datepicker table tr td.focused,
-.datepicker .datepicker-switch:hover,
-.datepicker .next:hover,
-.datepicker .prev:hover,
-.datepicker tfoot tr th:hover {
-  background: rgb(199 155 102 / 60%);
-}
-
-.datepicker table tr td.active.active,
-.datepicker table tr td.active.active.focus,
-.datepicker table tr td.active.highlighted.active,
-.datepicker table tr td.active.highlighted.active.focus,
-.datepicker table tr td.active.highlighted.active:hover,
-.datepicker table tr td.active:active:hover {
-  background-color: var(--main-color) !important;
-}
-
-.form-control:focus,
-.inputs-block__input:focus,
-.select2-selection--single:focus {
-  background-color: transparent;
-  border-color: var(--main-color);
-  box-shadow: 0 0 0 .25rem rgba(164, 135, 99, .25);
-}
 
 
 
