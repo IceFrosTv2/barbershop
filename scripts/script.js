@@ -6,11 +6,102 @@ $(function () {
     imageSrc: '../image/bg-follow-full.png',
     speed: .5
   });
-  const thumbnails = document.getElementsByClassName('thumbnail');
-  let current;
-  ymaps.ready(init);
-  let center = [55.9174276443194, 37.99588015321116];
+  // ______Choose service, barber and time_______________________________________________________________________________________
+  let clientName = document.getElementById('name');
+  let barberName = $('.barber__name');
+  let barberNameData = [];
+  let priceName = $('.price__name');
+  let priceNameData = [];
+  $.fn.select2.defaults.set("width", "100%");
 
+  clientName.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, '');
+  });
+
+  barberName.each(function (index, element) {
+    barberNameData.push({
+      id: index + 1,
+      text: element.innerText.trim(),
+    });
+    console.log(barberNameData)
+  });
+  priceName.each(function (index, element) {
+    priceNameData.push({
+      id: index + 1,
+      text: element.innerText.trim()
+    });
+    console.log(priceNameData)
+  });
+
+  $('.select__service').select2({
+    placeholder: 'Выберите услугу',
+    minimumResultsForSearch: Infinity,
+    data: priceNameData,
+    dropdownAutoWidth: true,
+    allowClear: true,
+  });
+  $('.select__master').select2({
+    placeholder: 'Выберите мастера',
+    minimumResultsForSearch: Infinity,
+    data: barberNameData,
+    allowClear: true,
+  });
+  $('.select__time').select2({
+    placeholder: 'Выберите время',
+    minimumResultsForSearch: Infinity,
+    allowClear: true,
+  });
+
+  const phone = document.getElementById('phone');
+  const phoneOptions = {
+    mask: '+{7} (000) 000 - 00 - 00'
+  };
+  const maskPhone = IMask(phone, phoneOptions);
+
+  IMask(
+    document.getElementById('date'),
+    {
+      mask: Date,
+      lazy: true,
+      autofix: true,
+      // min: new Date(2025, 0, 1),
+      // max: new Date(2026, 0, 1),
+      blocks: {
+        d: {
+          mask: IMask.MaskedRange,
+          placeholderChar: 'd',
+          from: 1,
+          to: 31,
+          maxLength: 2
+        },
+        m: {
+          mask: IMask.MaskedRange,
+          placeholderChar: 'm',
+          from: 1,
+          to: 12,
+          maxLength: 2
+        },
+        Y: {
+          mask: IMask.MaskedRange,
+          placeholderChar: 'y',
+          from: 1900,
+          to: 2999,
+          maxLength: 4
+        }
+      },
+    }
+  )
+
+  $('#date').datepicker({
+    format: "dd.mm.yyyy",
+    todayBtn: "linked",
+    language: "ru",
+    autoclose: true,
+    todayHighlight: true
+  });
+
+  // _________slider carousel____________________________________________________________________________________
+  const thumbnails = document.getElementsByClassName('thumbnail');
   const splide = new Splide('#main-slide', {
     pagination: false,
     arrows: false,
@@ -57,14 +148,18 @@ $(function () {
       current = thumbnail;
     }
   });
+  // _______Yandex Maps______________________________________________________________________________________
+  let current;
+  ymaps.ready(init);
+  let center = [55.9174276443194, 37.99588015321116];
 
   function init() {
-    var map = new ymaps.Map("footer-map", {
+    const map = new ymaps.Map("footer-map", {
       center: center,
       zoom: 15,
     });
 
-    let placemark = new ymaps.Placemark(center, {}, {
+    const placemark = new ymaps.Placemark(center, {}, {
       iconLayout: 'default#image',
       iconImageHref: '../image/icon-geo.svg',
       iconImageSize: [40, 50],
@@ -81,6 +176,24 @@ $(function () {
     // map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
     map.geoObjects.add(placemark); // помещаем флажок на карту
   }
+
+  // _______Barber button click______________________________________________________________________________________
+
+  let barberButton = $('.barber.is-active .barber__button ').click(function () {
+    let chooseBarber = $('#main-slide');
+    let chooseService = $('#inputs-block');
+
+    chooseBarber.animate({opacity: 0}, 500, function () {
+      chooseBarber.hide();
+      chooseService.animate({opacity: 1}, 500);
+      $('.inputs-block').css('display', 'block');
+    });
+
+  });
+
+
+  // _____________________________________________________________________________________________
+
 
 });
 
