@@ -152,7 +152,7 @@
       <img
         src="image/barber1.png"
         alt="Barber image"
-        class="about-as__image mb-5 pb-4 about-as__image"
+        class="about-as__image mb-5 pb-4"
       >
       <ul class="list-unstyled about-as__description">
         <li class="about-as__item">
@@ -518,32 +518,38 @@
         Заполните данные <br>
         для оформления заявки
       </h3>
+      <p class="thanks-block__description">
+        Наш администратор свяжется с вами в течение 10 минут, для уточнения
+        деталей.
+      </p>
       <div class="inputs-block__form">
         <div class="contact-info">
-          <label>
+          <label class="select-master__label">
             <input
+              class="inputs-block__input submission select__input"
               type="text"
               pattern="^[a-zA-Zа-яА-ЯёЁ]+$"
-              class="inputs-block__input submission"
               id="name"
               name="name"
               placeholder="Ваше имя"
             />
+            <small class="service__error">Введите имя</small>
           </label>
-          <label>
+          <label class="select-master__label">
             <input
-              class="inputs-block__input submission"
+              class="inputs-block__input submission select__input"
               id="phone"
               name="phone"
               placeholder="Ваш телефон"
             />
+            <small class="service__error">Укажите ваш телефон</small>
           </label>
         </div>
         <div class="choose-options">
           <label class="select-master__label">
             <select
-              class="select__service submission"
-              id="choose-service"
+              class="select__service submission select__input"
+              id="select-service"
               name="select-a-service"
             >
               <option
@@ -553,12 +559,13 @@
               >
               </option>
             </select>
+            <small class="service__error">Выберите услугу</small>
           </label>
           <label class="select-master__label">
             <select
-              class="select__master submission"
+              class="select__master submission select__input"
               name="select-a-master"
-              id="choose-masters"
+              id="select-a-master"
             >
               <option
                 value=""
@@ -567,22 +574,24 @@
               >
               </option>
             </select>
+            <small class="service__error">Выберите мастера</small>
           </label>
         </div>
         <div class="choose-date">
-          <label>
+          <label class="select-master__label">
             <input
-              class="inputs-block__input form-control submission"
+              class="inputs-block__input form-control submission select__input"
               id="date"
               name="Choose date"
               placeholder="Введите дату"
             />
+            <small class="service__error">Выберите дату</small>
           </label>
-          <label class="select-master__label submission">
+          <label class="select-master__label">
             <select
-              class="select__time"
+              class="select__time select__input"
               name="Choose time"
-              id="select__time"
+              id="select-time"
             >
               <option
                 value=""
@@ -591,12 +600,41 @@
               >
               </option>
             </select>
+            <small class="service__error">Выберите время</small>
           </label>
         </div>
       </div>
       <button class="service__button btn btn-warning">
         Оформить заявку
       </button>
+      <div class="close-button">
+        <svg
+          viewBox="0 0 24.00 24.00"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            id="SVGRepo_bgCarrier"
+            stroke-width="0"
+          ></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <g id="Menu / Close_LG">
+              <path
+                id="Vector"
+                d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001"
+                stroke="#ae8959"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </g>
+        </svg>
+      </div>
     </div>
     <div
       class="splide thumbnail-slider"
@@ -803,6 +841,11 @@
     </div>
   </div>
 </section>
+
+<!--___________________________________________________________________________________________________________-->
+<div class="loader-background">
+  <span class="loader"></span>
+</div>
 
 <!--___________________________________________________________________________________________________________-->
 <script src="scripts/jquery-3.7.1.min.js"></script>

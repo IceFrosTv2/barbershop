@@ -49,6 +49,7 @@ body {
 p {
   margin-bottom: 0;
 }
+
 /*_____Button and basic styles___________________________________________________________________*/
 .btn {
   border: none;
@@ -89,6 +90,7 @@ p {
   --bs-btn-disabled-color: var(--main-color);
   --bs-btn-disabled-border-color: var(--main-color);
 }
+
 /*__________________________Link and phone in header__________________________________*/
 .header__link {
   color: white;
@@ -150,6 +152,7 @@ p {
 .advantages__text {
   margin-left: 30px;
 }
+
 /*__________________About us, prices, information about the masters______________*/
 .about-as, .price, .masters-info {
   margin-top: 100px;
@@ -217,10 +220,12 @@ p {
   bottom: -49px;
   right: 188px;
 }
+
 /*__________________Parallax effect_________________________*/
 .parallax, .parallax2 {
   min-height: 181px;
 }
+
 /*___________________Follow-as and first-visit containers_______________*/
 .follow-as__container,
 .first-visit__container {
@@ -245,6 +250,7 @@ p {
 .follow-as__button {
   padding: 23px 60px 22px;
 }
+
 /*____________________Price_______________________________*/
 .price {
   border-left: 1px solid var(--main-color);
@@ -331,6 +337,11 @@ p {
   max-width: 809px;
 }
 
+.splide__block {
+  max-width: 1004px;
+  width: 100%;
+}
+
 #main-slide {
   margin: 0 auto;
 }
@@ -357,12 +368,7 @@ p {
   opacity: 1;
 }
 
-/*.barber__info {*/
-/*  transition: all 0.6s ease;*/
-/*}*/
-
 .barber.is-active .barber__info {
-  /*transition: all 0.6s ease;*/
   transform: scale(1.25);
   z-index: 1;
 }
@@ -485,16 +491,17 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 /*_______________________Styles for the form and the .inputs-block section.__________*/
 .inputs-block {
-  max-width: 1004px;
-  padding: 60px 100px;
+  padding: 60px;
   justify-items: center;
   display: none;
   background: url("../image/bg-follow-full.png") no-repeat center;
   background-size: cover;
   height: 500px;
   transition: height 0.4s ease;
+  position: relative;
 }
 
 .inputs-block__title {
@@ -507,6 +514,21 @@ p {
 .inputs-block__form {
   display: flex;
   margin: 40px 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.close-button:hover svg path {
+  stroke: var(--main-color-hover);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
 .splide__block label {
@@ -537,7 +559,6 @@ p {
 .select-master__label {
   position: relative;
 }
-
 
 .select2-container--open .select2-dropdown--below,
 .dropdown-menu,
@@ -640,6 +661,80 @@ p {
   background-color: transparent;
   border-color: var(--main-color);
   box-shadow: 0 0 0 .25rem rgba(164, 135, 99, .25);
+}
+
+.error .inputs-block__input,
+.error .select2-container--default .select2-selection--single {
+  border-color: #960018;
+}
+
+.service__error {
+  display: none;
+  font-size: 15px;
+  color: #960018;
+  font-weight: bold;
+  position: absolute;
+  top: 75%;
+  left: 7%;
+}
+
+.error .service__error {
+  display: block;
+}
+
+.thanks-block__description {
+  font-size: 18px;
+  line-height: 1.389;
+  max-width: 378px;
+  margin-top: 79px;
+  display: none;
+}
+
+/*__________________________________________________________________________________________________*/
+.loader-background {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-bottom: 4px solid var(--main-color);
+  border-left: 4px solid transparent;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /*______________________________________________________________________________________________________________*/

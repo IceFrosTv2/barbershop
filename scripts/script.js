@@ -1,10 +1,101 @@
 'use strict';
 
 $(function () {
+  // ________Parallax____________________________________________________________________________________
   $('.parallax').parallax({imageSrc: '../image/bg-follow-full.png', speed: .8});
   $('.parallax2').parallax({
     imageSrc: '../image/bg-follow-full.png',
     speed: .5
+  });
+
+  // ________Phone mask____________________________________________________________________________________
+  const phone = document.getElementById('phone');
+
+  const phoneMask = IMask(phone, {
+    mask: '+{7} (000) 000 - 00 - 00'
+  });
+
+  phoneMask.on('accept', function() {
+    checkInput($('#phone'));
+  });
+
+  // _______Input validation______________________________________________________________________________________
+  let selectInputs = $('.select__input');
+
+  function checkInput(inputValidate) {
+    let hasError;
+    if (inputValidate.is('select')) {
+      // Для селекта проверяем, что выбранное значение не пустое
+      hasError = inputValidate.val() === null || inputValidate.val() === '';
+    } else if (inputValidate.attr('id') === 'phone') {
+      // Для телефона проверяем, что введено 11 цифр
+      hasError = phoneMask.unmaskedValue.length !== 11;
+    } else {
+      // Для обычных инпутов проверяем пустоту текста
+      hasError = inputValidate.val().trim() === '';
+    }
+
+    // let hasError = inputValidate.is('select')
+    //   ? (inputValidate.val() === null || inputValidate.val() === '')
+    //   : inputValidate.val().trim() === '';
+
+    inputValidate.parent().toggleClass('error', hasError);
+    return hasError;
+  }
+
+  selectInputs.on('blur input change', function () {
+    checkInput($(this));
+  });
+
+  function validateForm() {
+    let isValid = true;
+    selectInputs.each(function () {
+      if (checkInput($(this))) isValid = false;
+    });
+    return isValid;
+  }
+
+
+  // ______Choose service, barber and time_______________________________________________________________________________________
+  let clientName = document.getElementById('name');
+  let barberName = $('.barber__name');
+  let barberNameData = [];
+  let priceName = $('.price__name');
+  let priceNameData = [];
+
+  // ________Select2____________________________________________________________________________________
+  $.fn.select2.defaults.set("width", "100%");
+
+  barberName.each(function (index, element) {
+    barberNameData.push({
+      id: index + 1,
+      text: element.textContent.trim(),
+    });
+  });
+  priceName.each(function (index, element) {
+    priceNameData.push({
+      id: index + 1,
+      text: element.textContent.trim()
+    });
+  });
+
+  $('.select__service').select2({
+    placeholder: 'Выберите услугу',
+    minimumResultsForSearch: Infinity,
+    data: priceNameData,
+    dropdownAutoWidth: true,
+    allowClear: true,
+  });
+  $('.select__master').select2({
+    placeholder: 'Выберите мастера',
+    minimumResultsForSearch: Infinity,
+    data: barberNameData,
+    allowClear: true,
+  });
+  $('.select__time').select2({
+    placeholder: 'Выберите время',
+    minimumResultsForSearch: Infinity,
+    allowClear: true,
   });
 
   // _________slider carousel____________________________________________________________________________________
@@ -45,6 +136,7 @@ $(function () {
 
   splide.on('mounted move', function () {
     const thumbnail = thumbnails[splide.index];
+    let current;
 
     if (thumbnail) {
       if (current) {
@@ -56,60 +148,10 @@ $(function () {
     }
   });
 
-  // ______Choose service, barber and time_______________________________________________________________________________________
-  let clientName = document.getElementById('name');
-  let barberName = $('.barber__name');
-  let barberNameData = [];
-  let priceName = $('.price__name');
-  let priceNameData = [];
-
   // ________Input only letters____________________________________________________________________________________
   clientName.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, '');
   });
-
-  // ________Phone mask____________________________________________________________________________________
-  const phone = document.getElementById('phone');
-  const phoneOptions = {
-    mask: '+{7} (000) 000 - 00 - 00'
-  };
-  IMask(phone, phoneOptions);
-
-  // ________Select2____________________________________________________________________________________
-  $.fn.select2.defaults.set("width", "100%");
-
-  barberName.each(function (index, element) {
-    barberNameData.push({
-      id: index + 1,
-      text: element.textContent.trim(),
-    });
-  });
-  priceName.each(function (index, element) {
-    priceNameData.push({
-      id: index + 1,
-      text: element.textContent.trim()
-    });
-  });
-
-  $('.select__service').select2({
-    placeholder: 'Выберите услугу',
-    minimumResultsForSearch: Infinity,
-    data: priceNameData,
-    dropdownAutoWidth: true,
-    allowClear: true,
-  });
-  $('.select__master').select2({
-    placeholder: 'Выберите мастера',
-    minimumResultsForSearch: Infinity,
-    data: barberNameData,
-    allowClear: true,
-  });
-  $('.select__time').select2({
-    placeholder: 'Выберите время',
-    minimumResultsForSearch: Infinity,
-    allowClear: true,
-  });
-
 
   // _________Date mask and datepicker___________________________________________
   IMask(
@@ -155,7 +197,7 @@ $(function () {
   });
 
   // _________Select time options____________________________________________________________________________________
-  const select = document.getElementById('select__time');
+  const selectTime = document.getElementById('select-time');
   const startHour = 10;
   const endHour = 18;
   const intervalMinutes = 30;
@@ -165,20 +207,19 @@ $(function () {
   }
 
   // Заполняем select вариантами: 10:00, 10:30, ..., 17:30, 18:00
-  for(let hour = startHour; hour <= endHour; hour++) {
-    for(let min = 0; min < 60; min += intervalMinutes) {
+  for (let hour = startHour; hour <= endHour; hour++) {
+    for (let min = 0; min < 60; min += intervalMinutes) {
       // Ограничиваем последний интервал, чтобы не выйти за 18:00
-      if(hour === endHour && min > 0) break;
+      if (hour === endHour && min > 0) break;
 
       const option = document.createElement('option');
       option.value = `${pad(hour)}:${pad(min)}`;
       option.textContent = `${pad(hour)}:${pad(min)}`;
-      select.appendChild(option);
+      selectTime.appendChild(option);
     }
   }
 
   // _______Yandex Maps______________________________________________________________________________________
-  let current;
   ymaps.ready(init);
   let center = [55.9174276443194, 37.99588015321116];
 
@@ -216,46 +257,56 @@ $(function () {
 
     chooseBarber.animate({opacity: 0}, 500, function () {
       chooseBarber.hide();
-      chooseService.animate({opacity: 1}, 500);
-      $('.inputs-block').css('display', 'block');
+      chooseService.animate({opacity: 1}, 500).css('display', 'block');
     });
   });
 
-  // serviceButton.click(function () {
-  //
-  //   chooseService.animate({opacity: 0}, 500, function () {
-  //     chooseService.hide();
-  //     let submissionForm = $('.submission');
-  //
-  //     submissionForm.on('blur input', function() {
-  //       let isEmpty = $(this).val().trim() === '';
-  //       // $(this).parent().toggleClass('error', isEmpty);
-  //     });
-  //   })
-  // })
+  serviceButton.click(function () {
+    let loader = $('.loader-background');
+    let inputsBlock = $('.inputs-block__form');
 
+    const service = document.getElementById('select-service');
+    const barber = document.getElementById('select-a-master');
+    const date = document.getElementById('date');
 
-  // _____________________________________________________________________________________________
+    if (validateForm()) {
+      loader.css('display', 'flex');
+      $.ajax({
+        method: 'POST',
+        url: 'https://testologia.ru/checkout',
+        data: {
+          name: clientName.value.trim(),
+          phone: phone.value.trim(),
+          service: service.value,
+          barber: barber.value,
+          date: date.value,
+          time: selectTime.value,
+        }
+      })
+        .done(function (message) {
+          loader.hide();
+          if (message.success) {
+            inputsBlock.animate({opacity: 0}, 500, function () {
+              inputsBlock.hide();
+              $('.inputs-block__title').text('Спасибо что выбрали Strong Club!');
+              $('.thanks-block__description').css('display', 'block');
+              $('.service__button').css('display', 'none');
+            })
+          } else {
+            alert('Возникла ошибка при оформлении заказа, позвоните нам и сделайте заказ')
+          }
+        });
+    } else {
+      return false;
+    }
+  })
 
+  // ____________Close button click_________________________________________________________________________________
+  $('.close-button').click(function () {
+    chooseService.animate({opacity: 0}, 500, function () {
+      chooseService.hide();
+      chooseBarber.animate({opacity: 1}, 500).css('display', 'block');
+    });
+  })
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
