@@ -99,6 +99,7 @@ $(function () {
   });
 
   // _________slider carousel____________________________________________________________________________________
+  let current;
   const thumbnails = document.getElementsByClassName('thumbnail');
   const splide = new Splide('#main-slide', {
     pagination: false,
@@ -136,7 +137,6 @@ $(function () {
 
   splide.on('mounted move', function () {
     const thumbnail = thumbnails[splide.index];
-    let current;
 
     if (thumbnail) {
       if (current) {
