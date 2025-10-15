@@ -40,6 +40,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Muller", sans-serif;
   background-image: url("../image/background.png");
@@ -51,6 +55,95 @@ p {
 }
 
 /*_____Button and basic styles___________________________________________________________________*/
+.header__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+.burger-menu span {
+  /*width: 25px;*/
+  /*height: 2px;*/
+  background-color: var(--main-color);
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+.burger-menu span:nth-child(1) {
+  top: 0;
+}
+
+.burger-menu span:nth-child(2),.burger-menu span:nth-child(3) {
+  top: 16px;
+}
+
+.burger-menu span:nth-child(4) {
+  top: 32px;
+}
+
+.burger-menu.open span:nth-child(1) {
+  top: 16px;
+  width: 0;
+  left: 50%;
+}
+
+.burger-menu.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.burger-menu.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.burger-menu.open span:nth-child(4) {
+  top: 16px;
+  width: 0;
+  left: 50%;
+}
+
+.navigation {
+  justify-content: center;
+}
+
 .btn {
   border: none;
   width: 232px;
@@ -96,15 +189,20 @@ p {
   color: white;
   border-bottom: 1px solid transparent;
   text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.header__link:hover {
+  border-bottom-color: var(--main-color);
 }
 
 .phone {
   color: white;
+  transition: all 0.2s ease;
 }
 
-.header__link:hover, .phone:hover {
-  color: white;
-  border-bottom-color: var(--main-color);
+.phone:hover {
+  color: var(--main-color-hover);
 }
 
 /*___Fon elements___________________________________________________________________________--*/
@@ -128,6 +226,12 @@ p {
 }
 
 /*______Titles and descriptions of preview sections_________________________*/
+.preview {
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+
 .preview__title {
   font-size: 2.5rem;
   font-family: var(--lora);
@@ -139,8 +243,9 @@ p {
 }
 
 
-.preview__button {
+.preview__button, .popup__button {
   padding: 23px 33px;
+  text-decoration: none;
 }
 
 /*____________________Advantages block___________________________________*/
@@ -149,8 +254,19 @@ p {
   height: 180px;
 }
 
+.advantages__list {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
 .advantages__text {
   margin-left: 30px;
+}
+
+.advantages__item:hover .advantages__image {
+  transform: scale(1.2);
+  transition: all 0.4s ease;
 }
 
 /*__________________About us, prices, information about the masters______________*/
@@ -169,11 +285,27 @@ p {
 
 .about-as__title, .masters-info__title {
   margin-bottom: 60px;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Lora";
+  line-height: 1.156;
+}
+
+.about-as__content {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: space-between;
+}
+
+.about-as__image {
+  transition: all 0.4s ease;
+  margin-bottom: 72px;
+  width: 100%;
 }
 
 .about-as__image:hover {
   transform: scale(1.1);
-  transition: all 0.4s ease;
 }
 
 .about-as__text {
@@ -232,6 +364,9 @@ p {
   width: 916px;
   position: relative;
   left: -50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .follow-as__title,
@@ -265,6 +400,8 @@ p {
 .price__block {
   margin-left: 83px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
 .price__item {
@@ -493,6 +630,11 @@ p {
 }
 
 /*_______________________Styles for the form and the .inputs-block section.__________*/
+.contact-info, .choose-options, .choose-date {
+  display: flex;
+  flex-direction: column;
+}
+
 .inputs-block {
   padding: 60px;
   justify-items: center;
@@ -690,7 +832,7 @@ p {
   display: none;
 }
 
-/*__________________________________________________________________________________________________*/
+/*_______________Loader___________________________________________________________________________________*/
 .loader-background {
   display: none;
   justify-content: center;
@@ -811,7 +953,6 @@ p {
 
 .footer__map {
   width: 862px;
-  height: 436px;
 }
 
 [class*="copyrights-pane"] {
@@ -829,8 +970,34 @@ p {
   color: rgb(80, 79, 79);
 }
 
+/*__________Popup___________________________________________________*/
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
 
+.popup__content {
+  padding: 40px;
+  border: 1px solid var(--main-color);
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  background: #1a1a1f;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
 
-
+.popup__button {
+  margin-top: 20px;
+}
 
 

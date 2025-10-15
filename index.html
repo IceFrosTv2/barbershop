@@ -33,6 +33,11 @@
   />
 
   <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  >
+
+  <link
     rel="stylesheet"
     href="css/style.css"
   >
@@ -43,8 +48,8 @@
 </head>
 <body>
 <!--___________________________________________________________________________-->
-<section class="container">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between pb-2 pt-5 mt-3 mb-1">
+<section class="header container">
+  <header class="header__container justify-content-md-between pb-2 pt-5 mt-3 mb-1">
     <a href="#">
       <img
         src="image/logo.png"
@@ -52,7 +57,14 @@
       >
     </a>
 
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    <div class="burger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="navigation nav mb-2 mb-md-0">
       <li class="px-4 me-1 nav-link">
         <a
           href="#"
@@ -74,7 +86,7 @@
         >Барберы
         </a>
       </li>
-      <li class="nav-link px-3 me-1">
+      <li class="nav-link px-4 me-1">
         <a
           href="#"
           class="header__link pb-1"
@@ -97,17 +109,25 @@
   </header>
 </section>
 <!--___________________________________________________________________________________________________________-->
-<section class="container d-flex align-items-center position-relative">
+<section class="container preview">
   <article class="preview-info d-flex flex-column">
     <span class="fon-text-1 end-0">strong</span>
     <h1 class="preview__title mb-4 pb-3">Создайте деловой имидж,
       который достоин Вас!
     </h1>
     <span class="preview__description mb-5">Мужские стрижки и бритье в центре Москвы</span>
-    <button class="preview__button btn btn-warning">Записаться онлайн</button>
+    <a
+      href="#masters-info__title"
+      class="preview__button btn btn-warning"
+    >Записаться онлайн
+    </a>
     <span class="fon-text-2 ">club</span>
   </article>
-  <article class="preview-image">
+  <article
+    class="preview-image"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+  >
     <img
       src="image/big_barber.png"
       alt="Barber image"
@@ -117,23 +137,26 @@
 <!--___________________________________________________________________________________________________________-->
 <section class="advantages align-content-center">
   <article class="container">
-    <ul class="d-flex justify-content-between list-unstyled">
-      <li>
+    <ul class=" advantages__list">
+      <li class="advantages__item">
         <img
+          class="advantages__image"
           src="image/maps-and-location.png"
           alt="location image"
         >
         <span class="advantages__text">Находимся в центре Москвы</span>
       </li>
-      <li>
+      <li class="advantages__item">
         <img
+          class="advantages__image"
           src="image/electronics.png"
           alt="electronics image"
         >
         <span class="advantages__text">Лучшие мастера</span>
       </li>
-      <li>
+      <li class="advantages__item">
         <img
+          class="advantages__image"
           src="image/avatar.png"
           alt="avatar image"
         >
@@ -144,17 +167,23 @@
 </section>
 <!--___________________________________________________________________________________________________________-->
 <section class="container about-as">
-  <h2 class="text-center about-as__title">Strong Club – это намного больше, чем
+  <h2 class="about-as__title">Strong Club – это намного больше, чем
     просто мужская парикмахер
   </h2>
-  <article class="d-flex flex-wrap position-relative justify-content-between">
+  <article class="about-as__content">
     <div>
       <img
         src="image/barber1.png"
         alt="Barber image"
-        class="about-as__image mb-5 pb-4"
+        class="about-as__image"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
       >
-      <ul class="list-unstyled about-as__description">
+      <ul
+        class="list-unstyled about-as__description"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      >
         <li class="about-as__item">
           <div>
             <img
@@ -208,24 +237,39 @@
         src="image/boroda_fon.png"
         alt="Man fon"
         class="about-as__background"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
       >
     </div>
   </article>
 </section>
 <!--___________________________________________________________________________________________________________-->
 <section class="follow-as parallax align-content-center">
-  <div class="follow-as__container d-flex justify-content-between align-items-center container">
+  <div
+    class="follow-as__container container"
+    data-aos="fade-up"
+    data-aos-duration="1000"
+  >
     <h2 class="follow-as__title">Следи за нами в <span class="follow-as__span">Instagram</span>,
       чтобы быть в курсе всех акций!
     </h2>
-    <button class="btn btn-warning follow-as__button">Подписаться</button>
+    <a
+      href="https://www.instagram.com/icefrostv2/"
+      class="btn btn-warning follow-as__button"
+      target="_blank"
+    >Подписаться
+    </a>
   </div>
 </section>
 <!--___________________________________________________________________________________________________________-->
 <section class="price container">
   <h2 class="price__title text-center">Прайс на наши услуги</h2>
-  <section class="price__block d-flex justify-content-between">
-    <article class="price__item">
+  <section class="price__block">
+    <article
+      class="price__item"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
       <h3>Основные услуги</h3>
       <div class="price__service-name d-flex justify-content-between">
         <div class="price__name-desc">
@@ -279,7 +323,11 @@
         <div class="price__the-service">1 850 руб.</div>
       </div>
     </article>
-    <article class="price__item">
+    <article
+      class="price__item"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+    >
       <div class="price__complex">
         <h3>Комплексные услуги</h3>
         <div class="price__service-name d-flex justify-content-between">
@@ -345,15 +393,24 @@
 </section>
 <!--___________________________________________________________________________________________________________-->
 <section class="first-visit parallax2 align-content-center">
-  <div class="first-visit__container d-flex justify-content-between align-items-center container">
+  <div
+    class="first-visit__container container"
+    data-aos="zoom-in"
+    data-aos-duration="700"
+  >
     <h2 class="first-visit__title">Вы у нас первый раз?
       Получите <span class="first-visit__span">скидку 15%</span></h2>
-    <button class="btn btn-warning">Получить скидку</button>
+    <button class="btn btn-warning first-visit__button">Получить скидку</button>
   </div>
 </section>
 <!--___________________________________________________________________________________________________________-->
 <section class="container masters-info text-center d-flex justify-content-center flex-column align-items-center">
-  <h2 class="masters-info__title">Наши мастера</h2>
+  <h2
+    class="masters-info__title"
+    id="masters-info__title"
+  >
+    Наши мастера
+  </h2>
   <div class="masters-info__description">
     Вот они, простые герои, несущие в мир стиль и безупречный внешний вид.
     Команда Barber Club каждый день трудится
@@ -372,8 +429,14 @@
     >
       <div class="splide__track">
         <div class="barber__list splide__list">
-          <div class="splide__slide barber">
-            <figure class="barber__info">
+          <div
+            class="splide__slide barber"
+          >
+            <figure
+              class="barber__info"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
               <img
                 src="image/1.png"
                 alt="Барбер Марат"
@@ -612,15 +675,6 @@
           viewBox="0 0 24.00 24.00"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g
-            id="SVGRepo_bgCarrier"
-            stroke-width="0"
-          ></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></g>
           <g id="SVGRepo_iconCarrier">
             <g id="Menu / Close_LG">
               <path
@@ -679,8 +733,16 @@
 <section class="footer">
   <div class="container">
     <div class="footer__info-and-map">
-      <div class="footer__info-and-logo">
-        <a href="#">
+      <div
+        class="footer__info-and-logo"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      >
+        <a
+          href="#"
+          class="footer__logo"
+        >
           <img
             src="image/logo.png"
             alt="logo"
@@ -835,7 +897,9 @@
         id="footer-map"
       ></div>
     </div>
-    <div class="footer__rights">
+    <div
+      class="footer__rights"
+    >
       <p>Все права защищены.</p>
       <p>Design by Karpuhin Vadim</p>
     </div>
@@ -843,6 +907,44 @@
 </section>
 
 <!--___________________________________________________________________________________________________________-->
+<div
+  class="popup"
+  id="discount-popup"
+>
+  <div class="popup__content">
+    <span class="close-button">
+      <svg
+        viewBox="0 0 24.00 24.00"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+          <g id="SVGRepo_iconCarrier">
+            <g id="Menu / Close_LG">
+              <path
+                id="Vector"
+                d="M21 21L12 12M12 12L3 3M12 12L21.0001 3M12 12L3 21.0001"
+                stroke="#ae8959"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </g>
+          </g>
+        </svg>
+    </span>
+    <h3 class="popup__title"></h3>
+    <p class="popup__text">
+      Просто запишитесь в наш барбершоп и приходите – скидку мы применим после
+      осуществления услуги.
+    </p>
+    <a
+      href="#masters-info__title"
+      class="btn btn-warning popup__button"
+    >
+      Записаться
+    </a>
+  </div>
+</div>
+
 <div class="loader-background">
   <span class="loader"></span>
 </div>
@@ -859,6 +961,7 @@
 <script src="scripts/imask.js"></script>
 <script src="scripts/bootstrap-datepicker.min.js"></script>
 <script src="scripts/bootstrap-datepicker.ru.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script src="scripts/script.js"></script>
 </body>

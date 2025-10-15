@@ -7,6 +7,7 @@ $(function () {
     imageSrc: '../image/bg-follow-full.png',
     speed: .5
   });
+  AOS.init();
 
   // ________Phone mask____________________________________________________________________________________
   const phone = document.getElementById('phone');
@@ -109,6 +110,12 @@ $(function () {
     focus: 'center',
     width: 1004,
     autoWidth: true,
+    breakpoints: {
+      768: {
+        perPage: 1,
+        width: 365,
+      },
+    },
   });
 
   const thumbnailSlider = new Splide('#thumbnail-slider', {
@@ -119,6 +126,7 @@ $(function () {
     arrows: true,
     keyboard: 'global',
     rewind: true,
+    focus: 'center',
   });
 
   splide.sync(thumbnailSlider);
@@ -309,4 +317,18 @@ $(function () {
     });
   })
 
+//   ___________________Discount button popup__________________________________________________________________
+  $('.first-visit__button').click(function() {
+    $('#discount-popup').fadeIn();
+  });
+
+  $('.popup__close, .popup, .popup__button').click(function() {
+    $('#discount-popup').fadeOut();
+  });
+
+//   _________________Burger Menu___________________________________________________________________
+  $('.burger-menu').click(function () {
+    $(this).toggleClass('open');
+    $('.navigation').toggleClass('active')
+  });
 });
