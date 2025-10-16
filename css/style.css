@@ -82,8 +82,6 @@ p {
 }
 
 .burger-menu span {
-  /*width: 25px;*/
-  /*height: 2px;*/
   background-color: var(--main-color);
   display: block;
   position: absolute;
@@ -395,6 +393,7 @@ p {
   font-size: 2rem;
   font-family: var(--lora);
   margin-bottom: 58px;
+  text-align: center;
 }
 
 .price__block {
