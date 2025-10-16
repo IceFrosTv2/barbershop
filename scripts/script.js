@@ -172,8 +172,6 @@ $(function () {
       mask: Date,
       lazy: true,
       autofix: true,
-      // min: new Date(2025, 0, 1),
-      // max: new Date(2026, 0, 1),
       blocks: {
         d: {
           mask: IMask.MaskedRange,

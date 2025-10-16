@@ -140,6 +140,11 @@ p {
   left: 50%;
 }
 
+.burger-menu.open {
+  position: fixed;
+  right: 15px;
+}
+
 .navigation {
   justify-content: center;
 }
