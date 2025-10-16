@@ -2,9 +2,9 @@
 
 $(function () {
   // ________Parallax____________________________________________________________________________________
-  $('.parallax').parallax({imageSrc: '../image/bg-follow-full.png', speed: .8});
+  $('.parallax').parallax({imageSrc: './image/bg-follow-full.png', speed: .8});
   $('.parallax2').parallax({
-    imageSrc: '../image/bg-follow-full.png',
+    imageSrc: './image/bg-follow-full.png',
     speed: .5
   });
   AOS.init();
@@ -126,7 +126,11 @@ $(function () {
     arrows: true,
     keyboard: 'global',
     rewind: true,
-    focus: 'center',
+    breakpoints: {
+      768: {
+        focus: 'center',
+      },
+    }
   });
 
   splide.sync(thumbnailSlider);

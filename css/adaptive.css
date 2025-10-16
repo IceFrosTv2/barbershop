@@ -93,6 +93,7 @@
   .inputs-block__form {
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: unset;
   }
 
   .choose-date {
@@ -166,6 +167,10 @@
   .footer__info-and-map {
     flex-direction: column;
     gap: 60px;
+  }
+
+  .splide__block label {
+    padding: 20px 10px;
   }
 
   .footer__info-and-logo {
@@ -255,7 +260,29 @@
 }
 /*______________________________________________________________________________________*/
 @media screen and (max-width: 518px) {
+  .inputs-block, .barber {
+    height: 560px;
+  }
 
+  .inputs-block__form {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .choose-date {
+    flex-direction: column;
+  }
+
+  .splide__block label {
+    padding: 10px;
+  }
+
+  .inputs-block__input, .select2-container--default .select2-selection--single,
+  .contact-info, .choose-options, .choose-date, .selection {
+    width: 100%;
+  }
 }
 /*______________________________________________________________________________________*/
 @media screen and (max-width: 426px) {

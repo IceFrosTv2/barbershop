@@ -541,7 +541,6 @@ p {
 
 .barber__list {
   align-items: center;
-  height: 500px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -655,6 +654,7 @@ p {
 .inputs-block__form {
   display: flex;
   margin: 40px 0;
+  gap: 67px;
 }
 
 .close-button {
