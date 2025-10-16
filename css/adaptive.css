@@ -302,7 +302,8 @@
 /*______________________________________________________________________________________*/
 @media screen and (max-width: 518px) {
   .inputs-block, .barber {
-    height: 560px;
+    height: 575px;
+    padding: 40px 0 0 0;
   }
 
   .inputs-block__form {
