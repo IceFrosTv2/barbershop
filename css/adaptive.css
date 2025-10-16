@@ -33,10 +33,18 @@
   .footer__map {
     width: 600px;
   }
-}
 
+  .footer__info-and-logo {
+    margin-right: 20px
+  }
+}
 /*__________________________________________________________________________________*/
 @media screen and (max-width: 992px) {
+  .header__container {
+    margin-top: 30px;
+    margin-bottom: 60px;
+  }
+
   .phone {
     display: none;
   }
@@ -103,12 +111,43 @@
   }
 
   .footer__map {
-    width: 50%;
+    width: 75%;
   }
 }
 
 /*__________________________________________________________________________________*/
 @media screen and (max-width: 768px) {
+  .header__container {
+    justify-content: space-between;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100%;
+    background: #1a1a1f;
+    flex-direction: column;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .navigation.active {
+    right: 0;
+  }
+
+  .nav-link:hover .header__link, .nav-link:active .header__link {
+    color: var(--main-color-hover);
+  }
+
+  .burger-menu {
+    display: flex;
+    z-index: 10001;
+  }
+
   .preview {
     align-items: end;
   }
@@ -242,6 +281,8 @@
     flex-direction: column;
     margin-block: 20px;
     gap: 20px;
+    align-items: start;
+    margin-left: 25%;
   }
 
   .advantages__item {
@@ -286,37 +327,6 @@
 }
 /*______________________________________________________________________________________*/
 @media screen and (max-width: 426px) {
-  .header__container {
-    justify-content: space-between;
-  }
-
-  .navigation {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    background: #1a1a1f;
-    flex-direction: column;
-    transition: right 0.4s ease;
-    z-index: 1000;
-    text-align: center;
-    font-size: 1.5rem;
-  }
-
-  .navigation.active {
-    right: 0;
-  }
-
-  .nav-link:hover .header__link, .nav-link:active .header__link {
-    color: var(--main-color-hover);
-  }
-
-  .burger-menu {
-    display: flex;
-    z-index: 10001;
-  }
-
   .fon-text-1, .fon-text-2 {
     font-size: 4rem;
   }
@@ -337,6 +347,9 @@
     margin-block: 60px;
   }
 
+  .social-icon__inst {
+    margin-inline: 10%;
+  }
 }
 
 
