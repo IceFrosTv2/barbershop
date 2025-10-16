@@ -243,7 +243,7 @@ $(function () {
 
     const placemark = new ymaps.Placemark(center, {}, {
       iconLayout: 'default#image',
-      iconImageHref: '../image/icon-geo.svg',
+      iconImageHref: './image/icon-geo.svg',
       iconImageSize: [40, 50],
       iconImageOffset: [-20, -40]
     });
