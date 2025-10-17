@@ -203,6 +203,9 @@
     width: 200px;
   }
 
+  .inputs-block {
+    padding-inline: 0;
+  }
   .footer__info-and-map {
     flex-direction: column;
     gap: 60px;
